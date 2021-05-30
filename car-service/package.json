@@ -1,0 +1,22 @@
+{
+  "name": "car-service",
+  "version": "1.0.0",
+  "description": "Simulates a car that is driven about a city",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "build": "tsc"
+  },
+  "author": "Vladimir Traigel",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.0.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "dotenv": "^10.0.0"
+  }
+}
