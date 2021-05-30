@@ -3,11 +3,10 @@ import * as driverController from './controller'
 
 export const router = express.Router();
 
-router.get('', driverController.getDrivers);
-router.get('/:id', driverController.getDriver);
+router.get('', driverController.driverGet);
 
-router.post('', driverController.createDriver);
+router.post('', driverController.driverCreate);
+router.post('/login', driverController.driverLogin);
 
-router.put('/:id', driverController.updateDriver);
-
-router.delete('/:id', driverController.deleteDriver);
+router.put('/logout', driverController.driverLogout);
+router.put('/logoutAll', driverController.driverLogoutAll);

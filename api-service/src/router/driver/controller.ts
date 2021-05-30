@@ -1,15 +1,15 @@
-export function getDrivers(req, res, next) {
+export function driverGet(req, res, next) {
     return true
 }
-export function getDriver(req, res, next) {
+export function driverCreate(req, res, next) {
     return true
 }
-export function createDriver(req, res, next) {
+export function driverLogin(req, res, next) {
     return true
 }
-export function updateDriver(req, res, next) {
+export function driverLogout(req, res, next) {
     return true
 }
-export function deleteDriver(req, res, next) {
+export function driverLogoutAll(req, res, next) {
     return true
 }

@@ -3,7 +3,6 @@ services:
   carService:
     container_name: carService
     image: node:15.5.0-alpine3.12
-    entrypoint: ["/entrypoints/rabbit.sh", "-s" , "-t", "20", "rabbitmq:5672", "--"]
     depends_on:
       - rabbitmq
     command: sh -c "npm i && npm start"
@@ -13,6 +12,7 @@ services:
     volumes:
       - ./entrypoints:/entrypoints
       - ./car-service:/app
+    entrypoint: [ "/entrypoints/wait-for.sh", "rabbitmq:5672", "--", ]
     links:
       - rabbitmq
     networks:
@@ -23,7 +23,7 @@ services:
   penaltyService:
     container_name: penaltyService
     image: node:15.5.0-alpine3.12
-    entrypoint: ["/entrypoints/rabbit.sh", "-s" , "-t", "20", "rabbitmq:5672", "--"]
+    entrypoint: [ "/entrypoints/wait-for.sh", "rabbitmq:5672", "--", ]
     depends_on:
       - rabbitmq
       - mongo
@@ -46,7 +46,7 @@ services:
   apiService:
     container_name: apiService
     image: node:15.5.0-alpine3.12
-    entrypoint: ["/entrypoints/mongo.sh", "-s" , "-t", "20", "mongo:27017", "--"]
+#    entrypoint: [ "/entrypoints/wait-for.sh", "mongo:27017", "--", ]
     depends_on:
       - mongo
     command: sh -c "npm i && npm start"
