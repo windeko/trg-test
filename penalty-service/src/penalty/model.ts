@@ -1,8 +1,8 @@
 import * as mongoose from 'mongoose'
 
 const penaltyTypeSchema = new mongoose.Schema({
-    carId: { type: Number, required: true },
-    driverId: { type: Number, required: true },
+    carId: { type: mongoose.Schema.Types.ObjectId, required: true },
+    driverId: { type: mongoose.Schema.Types.ObjectId, required: true },
     latitude: { type: Number, required: true },
     longitude: { type: Number, required: true },
     speed: { type: Number, required: true },

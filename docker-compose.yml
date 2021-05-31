@@ -24,6 +24,7 @@ services:
         window: 120s
     environment:
       - MESSAGE_QUEUE=amqp://rabbitmq
+      - MONGO_URL=mongodb://root:example@mongo:27017/trg?authSource=admin
 
   penaltyService:
     container_name: penaltyService
@@ -58,7 +59,7 @@ services:
     image: node:16-alpine3.12
     depends_on:
       - mongo
-    command: sh -c "/entrypoints/wait-for.sh mongo:27017 && npm i && npm start"
+    command: sh -c "/entrypoints/wait-for.sh mongo:27017 && npm i && npm uninstall bcrypt && npm i bcrypt && npm start"
     env_file:
       - ./api-service/.env
     working_dir: /app

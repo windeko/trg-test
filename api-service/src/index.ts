@@ -6,6 +6,7 @@ require('./db/mongoose');
 
 import { router as carRouter } from './router/car'
 import { router as driverRouter } from './router/driver'
+import { router as penaltiesRouter } from './router/penalties'
 
 const app = express();
 app.get('/', (req, res) => {
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use('/cars', carRouter);
 app.use('/drivers', driverRouter);
+app.use('/penalties', penaltiesRouter);
 
 // ERROR HANDLING
 app.use(function (err, req, res, next) {

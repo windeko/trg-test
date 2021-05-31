@@ -1,6 +1,8 @@
+import {ObjectId} from "mongoose";
+
 export interface ICar {
-    carID: number,
-    userID: number,
+    carID: ObjectId,
+    userID: ObjectId,
     latitude: number,
     longitude: number,
     speed: number,
