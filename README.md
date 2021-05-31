@@ -24,5 +24,17 @@ but time is limited.
 It was an interesting project, and I hope that this test task 
 shows my code style well.
 
-Best regards,
+### Part B
+OPA is a middleware between user and backend. It's a flexible 
+and useful tool to give and restrict access to some parts of
+the project. Especially good working with numerous of services 
+that have been written in various programming languages. So we
+wouldn't change politics in various places, but write 
+few rules in OPA.
+
+Sorry for I'm not extending part A project with OPA, it's
+5:30AM already. It's not excuse me for undone part, but I tried
+my best.
+
+King regards,
 Vladimir Traigel
