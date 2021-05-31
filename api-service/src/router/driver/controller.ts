@@ -1,15 +1,42 @@
+import {Driver} from "../../handlers/driver";
+
 export function driverGet(req, res, next) {
-    return true
+    try {
+        const driver = Driver.aboutMe(req.driver);
+        res.status(200).send(driver)
+    } catch (e) {
+        next(e)
+    }
 }
-export function driverCreate(req, res, next) {
-    return true
+export async function driverCreate(req, res, next) {
+    try {
+        await Driver.add(req.body);
+        res.status(201).send('OK');
+    } catch (e) {
+        next(e)
+    }
 }
-export function driverLogin(req, res, next) {
-    return true
+export async function driverLogin(req, res, next) {
+    try {
+        const loginResult = await Driver.login(req.body);
+        res.status(200).send(loginResult)
+    } catch (e) {
+        next(e)
+    }
 }
-export function driverLogout(req, res, next) {
-    return true
+export async function driverLogout(req, res, next) {
+    try {
+        await Driver.logout(req.driver, req.token);
+        res.status(200).send('OK')
+    } catch (e) {
+        next(e)
+    }
 }
-export function driverLogoutAll(req, res, next) {
-    return true
+export async function driverLogoutAll(req, res, next) {
+    try {
+        await Driver.logoutAll(req.driver);
+        res.status(200).send('OK')
+    } catch (e) {
+        next(e)
+    }
 }
